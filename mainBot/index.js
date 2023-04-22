@@ -1,5 +1,5 @@
 const { Scenes, session, Telegraf, Markup } = require('telegraf');
-const token = "6185032326:AAFiySMpFiOGS9a2G5H9rJJ6V4_ohJlxTA4"
+const token = "6133423256:AAGZbniWXddiiTTqMvfBJCoJ10ZRWWCJpsg"
 const bot = new Telegraf(token);
 const CC = require('currency-converter-lt')
 const axios = require('axios')
@@ -10,10 +10,14 @@ const SceneGenerator = require('./Scena')
 const currScene = new SceneGenerator();
 const costScena = currScene.CostEntryScene()
 const shoesScena = currScene.costShoesScene()
+const hoodieScena = currScene.costHoodiesScene()
 const pantsScena = currScene.costPantsScene()
-const tshirtScena = currScene.costTshirtScene()
-const socksScena = currScene.costSocksScene()
-const stage = new Scenes.Stage([costScena, shoesScena, pantsScena, tshirtScena, socksScena])
+const bagScena = currScene.costBagScene()
+const shortScena = currScene.costShortScene()
+const shirtScena = currScene.costShirtScene()
+const toyScena = currScene.costToysScene()
+const underScena = currScene.costUnderScene()
+const stage = new Scenes.Stage([costScena, shoesScena, hoodieScena, pantsScena, bagScena, shortScena, shirtScena, toyScena, underScena])
 
 bot.use(session())
 bot.use(stage.middleware())
