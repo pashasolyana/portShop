@@ -6,11 +6,17 @@ const mongoose = require("mongoose");
 const SceneGenerator = require('./Scena')
 const currScene = new SceneGenerator();
 const costScena = currScene.CostEntryScene()
+const usernameScena = currScene.getUserName()
+const linkScena = currScene.getLink()
+const status1Scena = currScene.getStatus1()
+const status2Scena = currScene.getStatus2()
 const orderScena = currScene.CreateOrder()
+const sizeScena = currScene.getSize()
 const priceScena = currScene.getPrice()
 const titleScena = currScene.getTitle()
+const checkScena = currScene.checkScena()
 const statisticScena = currScene.getStatistic()
-const stage = new Scenes.Stage([costScena,orderScena, titleScena, priceScena, statisticScena])
+const stage = new Scenes.Stage([costScena,orderScena,usernameScena,sizeScena, titleScena,status1Scena,status2Scena, linkScena,checkScena, priceScena, statisticScena])
 
 bot.use(session())
 bot.use(stage.middleware())

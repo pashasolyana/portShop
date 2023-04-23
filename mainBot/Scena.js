@@ -329,6 +329,8 @@ class ScenesGenerator {
           let chinaDrop = 7.5 * Number(CNY)// юань
           let portshopCom = 500
           console.log(CNY, USD, dropValue, logisticValue, dropPercentage, chinaDrop)
+          console.log(chinaDrop, 'chinaDrop') 
+          console.log(dropPercentage, 'dropPercentage') 
           let resultValue = ((Number(userValue) + Number(dropValue) + Number(logisticValue) + Number(chinaDrop)) * Number(CNY)) + Number(dropPercentage) + portshopCom
           await ctx.reply(
             `💸Итоговая стоимость составит : ${resultValue.toFixed(

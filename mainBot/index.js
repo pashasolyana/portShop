@@ -1,5 +1,5 @@
 const { Scenes, session, Telegraf, Markup } = require('telegraf');
-const token = "6133423256:AAGZbniWXddiiTTqMvfBJCoJ10ZRWWCJpsg"
+const token = "6185032326:AAFiySMpFiOGS9a2G5H9rJJ6V4_ohJlxTA4"
 const bot = new Telegraf(token);
 const CC = require('currency-converter-lt')
 const axios = require('axios')

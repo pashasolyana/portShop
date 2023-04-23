@@ -6,6 +6,11 @@ const fs = require("fs");
 
 class ScenesGenerator {
 
+    username;
+    status1;
+    status2;
+    link;
+    size;
     category;
     price;
     from;
@@ -21,7 +26,7 @@ class ScenesGenerator {
         entry.on('text', async (ctx) => {
             console.log(ctx.message.text)
             if (ctx.message.text == "Добавим заказ") {
-                ctx.scene.enter('order')
+                ctx.scene.enter('username')
             }
             else if (ctx.message.text == "Статистика за месяц") {
                 ctx.scene.enter('statistic')
@@ -32,38 +37,120 @@ class ScenesGenerator {
         })
         return entry;
     }
+
+    getUserName(){
+        const username = new Scenes.BaseScene('username');
+        username.enter(async (ctx) => {
+            await ctx.reply('Введите ник пользователя')
+        });
+        username.on('text', async (ctx) => {
+            this.username = ctx.message.text
+            await ctx.reply("Хорошо, спасибо.")
+            ctx.scene.enter('link')
+        })
+        return username;
+    }
+
+    getLink(){
+        const link = new Scenes.BaseScene('link');
+        link.enter(async (ctx) => {
+            await ctx.reply('Введите ссылку на товар')
+        });
+        link.on('text', async (ctx) => {
+            this.link = ctx.message.text
+            await ctx.reply("Хорошо, спасибо.")
+            ctx.scene.enter('status1')
+        })
+        return link;
+    }
+
+    getStatus1(){
+        const status1 = new Scenes.BaseScene('status1');
+        status1.enter(async (ctx) => {
+            await ctx.reply('Укажите статус оплаты',  Markup.keyboard([
+                ['Ожидает оплаты', 'Оплачен']
+            ]).resize().oneTime()
+            )
+        });
+        status1.on('text', async (ctx) => {
+            this.status1 = ctx.message.text
+            await ctx.reply("Хорошо, спасибо.")
+            ctx.scene.enter('status2')
+        })
+        return status1;
+    }
+
+    getStatus2(){
+        const status2 = new Scenes.BaseScene('status2');
+        status2.enter(async (ctx) => {
+            await ctx.reply('Укажите статус доставки',  Markup.keyboard([
+                ['Выкуплен', 'На складе в Китае'],
+                ['Отправлен в Россию', 'На Port-складе'],
+            ]).resize().oneTime()
+            )
+        });
+        status2.on('text', async (ctx) => {
+            this.status2 = ctx.message.text
+            await ctx.reply("Хорошо, спасибо.")
+            ctx.scene.enter('order')
+        })
+        return status2;
+    }
     
     CreateOrder() {
         const order = new Scenes.BaseScene('order');
         order.enter(async (ctx) => {
             await ctx.reply('Выберите нужную категорию товара', Markup.keyboard([
-                ["Обувь/Верхняя одежда  👟", "Толстовки/Штаны  👘"],
-                ["Футболка/Шорты  👕", "Носки/Нижнее белье  🧦"],
+                ["Кроссовки/Верхняя одежда", "Толстовки", "Штаны"],
+                ["Сумки", "Шорты", "Футболки"],
+                ["Мягкие игрушки", "Носки/Нижнее белье"],
             ]).resize().oneTime())
         });
         order.on('text', async (ctx) => {
-            if (ctx.message.text == "Обувь/Верхняя одежда  👟") {
-                this.category = "Обувь/Верхняя одежда"
-                ctx.scene.enter('title')
-            } else if (ctx.message.text == "Толстовки/Штаны  👘") {
-                this.category = "Толстовки/Штаны"
-                ctx.scene.enter('title')
-            }
-            else if (ctx.message.text == "Футболка/Шорты  👕") {
-                this.category = "Футболка/Шорты"
-                ctx.scene.enter('title')
-            }
-            else if (ctx.message.text == "Носки/Нижнее белье  🧦") {
+            if (ctx.message.text == "Кроссовки/Верхняя одежда") {
+                this.category = "Кроссовки/Верхняя одежда"
+                ctx.scene.enter('size')
+              } else if (ctx.message.text == "Толстовки") {
+                this.category = "Толстовки"
+                ctx.scene.enter('size')
+              } else if (ctx.message.text == "Штаны") {
+                this.category = "Штаны"
+                ctx.scene.enter('size')
+              } else if (ctx.message.text == "Сумки") {
+                this.category = "Сумки"
+                ctx.scene.enter('size')
+              }else if (ctx.message.text == "Шорты") {
+                this.category = "Шорты"
+                ctx.scene.enter('size')
+              }else if (ctx.message.text == "Футболки") {
+                this.category = "Футболки"
+                ctx.scene.enter('size')
+              }else if (ctx.message.text == "Мягкие игрушки") {
+                this.category = "Мягкие игрушки"
+                ctx.scene.enter('size')
+              }else if (ctx.message.text == "Носки/Нижнее белье") {
                 this.category = "Носки/Нижнее белье"
-                ctx.scene.enter('title')
-            }
-            else {
+                ctx.scene.enter('size')
+              }else {
                 await ctx.reply("Пожалуйста, выберите корректную категорию товаров.")
             }
 
         })
         return order;
-    }  
+    } 
+    
+    getSize(){
+        const size = new Scenes.BaseScene('size');
+        size.enter(async (ctx) => {
+            await ctx.reply('Пожалуйста, введите размер товара')
+        });
+
+        size.on('text', async (ctx) => {
+            this.size = ctx.message.text
+            ctx.scene.enter('title')
+        })
+        return size
+    }
 
     getTitle(){
         const title = new Scenes.BaseScene('title');
@@ -81,18 +168,16 @@ class ScenesGenerator {
     getPrice(){
         const price = new Scenes.BaseScene('price');
         price.enter(async (ctx) => {
-            await ctx.reply('Пожалуйста, введите стоимость товара')
+            await ctx.reply('Пожалуйста, введите стоимость товара в юанях')
         });
 
         price.on('text', async (ctx) => {
-            
             if (Number(ctx.message.text)){
                 this.price = Number(ctx.message.text)
-                const order = await services.create({title : this.title, price : this.price, category : this.category })
+                const order = await services.create({username : this.username,size : this.size, status1 : this.status1, status2 : this.status2, link : this.link, title : this.title, price : this.price, category : this.category })
                 console.log(order)
                 if(order){
-                    await ctx.reply('Заказ успешно добавлен')
-                    ctx.scene.enter('entry')
+                    ctx.scene.enter('check')
                 }
             }else {
                 await ctx.reply("Пожалуйста, введите корректную стоимость")
@@ -100,6 +185,25 @@ class ScenesGenerator {
 
         })
         return price
+    }
+
+    checkScena(){
+        const check = new Scenes.BaseScene('check');
+        check.enter(async (ctx) => {
+            await ctx.reply('Заказ успешно добавлен, что-то еще?', Markup.keyboard([
+                ['Добавить еще вещь', 'Другое']
+            ]).resize().oneTime()
+            )
+        });
+
+        check.on('text', async (ctx) => {
+            if(ctx.message.text == "Добавить еще вещь"){
+                ctx.scene.enter('link')
+            }else{
+                ctx.scene.enter('entry')
+            }
+        })
+        return check
     }
 
     getStatistic(){
