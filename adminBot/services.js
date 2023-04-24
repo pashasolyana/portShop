@@ -2,7 +2,6 @@ const Order = require('./models/Order/ordersModel')
 var xl = require('excel4node');
 const { uuid } = require('uuidv4');
 const axios = require('axios');
-const { buildReplyMarkup } = require('telegram/client/buttons');
 
 module.exports = {
     create : async(body) => {
@@ -26,28 +25,28 @@ module.exports = {
                     dropValue = Number(body.price) * 0.05 // drop
                     logisticValue = Number(body.price) * 0.03
                     dropPercentage = 7.86  * Number(usdCurse)
-                    chinaDrop = 14 * Number(CNY) 
+                    chinaDrop = 14
                     portShopCom = 1100
                     result = ((Number(body.price) + Number(dropValue) + Number(logisticValue) + Number(chinaDrop)) * Number(cnyCourse)) + Number(dropPercentage) + portShopCom
               } else if (body.category == "Толстовки") {
                 dropValue = Number(body.price) * 0.05 // drop
                 logisticValue = Number(body.price) * 0.03
                 dropPercentage = 6.02  * Number(usdCurse)
-                chinaDrop = 11 * Number(CNY) 
+                chinaDrop = 11
                 portShopCom = 800
                 result = ((Number(body.price) + Number(dropValue) + Number(logisticValue) + Number(chinaDrop)) * Number(cnyCourse)) + Number(dropPercentage) + portShopCom
               } else if (body.category == "Штаны") {
                 dropValue = Number(body.price) * 0.05 // drop
                 logisticValue = Number(body.price) * 0.03
                 dropPercentage = 5.42  * Number(usdCurse)
-                chinaDrop = 9 * Number(CNY) 
+                chinaDrop = 9
                 portShopCom = 800
                 result = ((Number(body.price) + Number(dropValue) + Number(logisticValue) + Number(chinaDrop)) * Number(cnyCourse)) + Number(dropPercentage) + portShopCom
               } else if (body.category == "Сумки") {
                 dropValue = Number(body.price) * 0.05 // drop
                 logisticValue = Number(body.price) * 0.03
                 dropPercentage = 4.24  * Number(usdCurse)
-                chinaDrop = 7.5 * Number(CNY)
+                chinaDrop = 7.5
                 console.log(chinaDrop, 'chinaDrop') 
                 console.log(dropPercentage, 'dropPercentage') 
                 portShopCom = 500
@@ -56,29 +55,29 @@ module.exports = {
                 dropValue = Number(body.price) * 0.05 // drop
                 logisticValue = Number(body.price) * 0.03
                 dropPercentage = 2.42  * Number(usdCurse)
-                chinaDrop = 4 * Number(CNY) 
+                chinaDrop = 4 
                 portShopCom = 400
                 result = ((Number(body.price) + Number(dropValue) + Number(logisticValue) + Number(chinaDrop)) * Number(cnyCourse)) + Number(dropPercentage) + portShopCom
               }else if (body.category == "Футболки") {
                 dropValue = Number(body.price) * 0.05 // drop
                 logisticValue = Number(body.price) * 0.03
                 dropPercentage = 2.42  * Number(usdCurse)
-                chinaDrop = 4 * Number(CNY) 
+                chinaDrop = 4 
                 portShopCom = 500
                 result = ((Number(body.price) + Number(dropValue) + Number(logisticValue) + Number(chinaDrop)) * Number(cnyCourse)) + Number(dropPercentage) + portShopCom
               }else if (body.category == "Мягкие игрушки") {
                 dropValue = Number(body.price) * 0.05 // drop
                 logisticValue = Number(body.price) * 0.03
                 dropPercentage =  2.42  * Number(usdCurse)
-                chinaDrop = 4 * Number(CNY) 
+                chinaDrop = 4 
                 portShopCom = 300
                 result = ((Number(body.price) + Number(dropValue) + Number(logisticValue) + Number(chinaDrop)) * Number(cnyCourse)) + Number(dropPercentage) + portShopCom
               }else if (body.category == "Носки/Нижнее белье") {
                 dropValue = Number(body.price) * 0.05 // drop
                 logisticValue = Number(body.price) * 0.03
                 dropPercentage = 1.81  * Number(usdCurse)
-                chinaDrop = 3 * Number(CNY) 
-                portShopCom = 300
+                chinaDrop = 3 
+                portShopCom = 250
                 result = ((Number(body.price) + Number(dropValue) + Number(logisticValue) + Number(chinaDrop)) * Number(cnyCourse)) + Number(dropPercentage) + portShopCom
               } else {
                   return null

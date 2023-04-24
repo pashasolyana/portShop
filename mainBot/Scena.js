@@ -178,7 +178,7 @@ class ScenesGenerator {
           let dropValue = Number(userValue) * 0.05 // drop
           let logisticValue = Number(userValue) * 0.03 
           let dropPercentage = 6.02  * Number(USD)// * dollar - процент дропа
-          let chinaDrop = 11 * Number(CNY)// юань
+          let chinaDrop = 11// юань
           let portshopCom = 800
           console.log(CNY, USD, dropValue, logisticValue, dropPercentage, chinaDrop)
           let resultValue = ((Number(userValue) + Number(dropValue) + Number(logisticValue) + Number(chinaDrop)) * Number(CNY)) + Number(dropPercentage) + portshopCom
@@ -252,7 +252,7 @@ class ScenesGenerator {
           let dropValue = Number(userValue) * 0.05 // drop
           let logisticValue = Number(userValue) * 0.03 
           let dropPercentage = 5.42  * Number(USD)// * dollar - процент дропа
-          let chinaDrop = 9 * Number(CNY)// юань
+          let chinaDrop = 9 // юань
           let portshopCom = 800
           console.log(CNY, USD, dropValue, logisticValue, dropPercentage, chinaDrop)
           let resultValue = ((Number(userValue) + Number(dropValue) + Number(logisticValue) + Number(chinaDrop)) * Number(CNY)) + Number(dropPercentage) + portshopCom
@@ -326,7 +326,7 @@ class ScenesGenerator {
           let dropValue = Number(userValue) * 0.05 // drop
           let logisticValue = Number(userValue) * 0.03 
           let dropPercentage = 4.24  * Number(USD)// * dollar - процент дропа
-          let chinaDrop = 7.5 * Number(CNY)// юань
+          let chinaDrop = 7.5
           let portshopCom = 500
           console.log(CNY, USD, dropValue, logisticValue, dropPercentage, chinaDrop)
           console.log(chinaDrop, 'chinaDrop') 
@@ -402,7 +402,7 @@ class ScenesGenerator {
           let dropValue = Number(userValue) * 0.05 // drop
           let logisticValue = Number(userValue) * 0.03 
           let dropPercentage = 2.42  * Number(USD)// * dollar - процент дропа
-          let chinaDrop = 4 * Number(CNY)// юань
+          let chinaDrop = 4
           let portshopCom = 400
           console.log(CNY, USD, dropValue, logisticValue, dropPercentage, chinaDrop)
           let resultValue = ((Number(userValue) + Number(dropValue) + Number(logisticValue) + Number(chinaDrop)) * Number(CNY)) + Number(dropPercentage) + portshopCom
@@ -477,7 +477,7 @@ class ScenesGenerator {
           let dropValue = Number(userValue) * 0.05 // drop
           let logisticValue = Number(userValue) * 0.03 
           let dropPercentage = 2.42  * Number(USD)// * dollar - процент дропа
-          let chinaDrop = 4 * Number(CNY)// юань
+          let chinaDrop = 4// юань
           let portshopCom = 500
           console.log(CNY, USD, dropValue, logisticValue, dropPercentage, chinaDrop)
           let resultValue = ((Number(userValue) + Number(dropValue) + Number(logisticValue) + Number(chinaDrop)) * Number(CNY)) + Number(dropPercentage) + portshopCom
@@ -551,7 +551,7 @@ class ScenesGenerator {
           let dropValue = Number(userValue) * 0.05 // drop
           let logisticValue = Number(userValue) * 0.03 
           let dropPercentage = 2.42  * Number(USD)// * dollar - процент дропа
-          let chinaDrop = 4 * Number(CNY)// юань
+          let chinaDrop = 4 // юань
           let portshopCom = 300
           console.log(CNY, USD, dropValue, logisticValue, dropPercentage, chinaDrop)
           let resultValue = ((Number(userValue) + Number(dropValue) + Number(logisticValue) + Number(chinaDrop)) * Number(CNY)) + Number(dropPercentage) + portshopCom
@@ -625,8 +625,8 @@ class ScenesGenerator {
           let dropValue = Number(userValue) * 0.05 // drop
           let logisticValue = Number(userValue) * 0.03 
           let dropPercentage = 1.81  * Number(USD)// * dollar - процент дропа
-          let chinaDrop = 3 * Number(CNY)// юань
-          let portshopCom = 300
+          let chinaDrop = 3// юань
+          let portshopCom = 250
           console.log(CNY, USD, dropValue, logisticValue, dropPercentage, chinaDrop)
           let resultValue = ((Number(userValue) + Number(dropValue) + Number(logisticValue) + Number(chinaDrop)) * Number(CNY)) + Number(dropPercentage) + portshopCom
           await ctx.reply(
