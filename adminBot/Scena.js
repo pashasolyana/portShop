@@ -86,6 +86,7 @@ class ScenesGenerator {
             await ctx.reply('Укажите статус доставки',  Markup.keyboard([
                 ['Выкуплен', 'На складе в Китае'],
                 ['Отправлен в Россию', 'На Port-складе'],
+                ['Ожидает выкупа']
             ]).resize().oneTime()
             )
         });
