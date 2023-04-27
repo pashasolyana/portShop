@@ -196,11 +196,11 @@ module.exports = {
                 ws.cell(1,6).string(`Статус 1`).style(style);
                 ws.cell(1,7).string(`Статус 2`).style(style);
                 ws.cell(1,8).string(`Цена POIZON`).style(style);
-                ws.cell(1,9).string(`Курс`).style(style);
-                ws.cell(1,10).string(`5% Дропа`).style(style);
-                ws.cell(1,11).string(`3%/300р Саша`).style(style);
-                ws.cell(1,12).string(`Мы доход`).style(style);
-                ws.cell(1,13).string(`Итого`).style(style);
+                ws.cell(1,9).string(`Сумма`).style(style);
+                ws.cell(1,10).string(`Курс`).style(style);
+                ws.cell(1,11).string(`5% Дропа`).style(style);
+                ws.cell(1,12).string(`3%/300р Саша`).style(style);
+                ws.cell(1,13).string(`Мы доход`).style(style);
                 let nextUserNameIndex = 2
                 let index = 2
                 for(let i = 0; i < orders.length; i++){
@@ -219,11 +219,11 @@ module.exports = {
                         }
                         ws.cell(index, 7).string(obj.items[j].status2).style(style)
                         ws.cell(index, 8).number(obj.items[j].poizonPrice).style(style)
-                        ws.cell(index, 9).number(obj.items[j].course).style(style)
-                        ws.cell(index, 10).number(obj.items[j].drop).style(style)
-                        ws.cell(index, 11).number(obj.items[j].Alex).style(style)
-                        ws.cell(index, 12).number(obj.items[j].profit).style(style)
-                        ws.cell(index, 13).number(obj.items[j].value).style(style)
+                        ws.cell(index, 9).number(obj.items[j].value).style(style)
+                        ws.cell(index, 10).number(obj.items[j].course).style(style)
+                        ws.cell(index, 11).number(obj.items[j].drop).style(style)
+                        ws.cell(index, 12).number(obj.items[j].Alex).style(style)
+                        ws.cell(index, 13).number(obj.items[j].profit).style(style)
                         index = index + 1
                         nextUserNameIndex += 1
                     }
