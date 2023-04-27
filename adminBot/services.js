@@ -97,7 +97,7 @@ module.exports = {
                     course : cnyCourse,
                     drop : dropValue,
                     Alex : logisticValue,
-                    profit : 0,
+                    profit : portShopCom,
                     value : result,
                 })
                 await order.save()
@@ -115,7 +115,7 @@ module.exports = {
                     course : cnyCourse,
                     drop : dropValue,
                     Alex : logisticValue,
-                    profit : 0,
+                    profit : portShopCom,
                     value : result,
                 })
                 await isOrder.save()
