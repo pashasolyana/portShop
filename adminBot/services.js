@@ -11,7 +11,7 @@ module.exports = {
                 const res = await axios.get(
                 "https://www.cbr-xml-daily.ru/daily_json.js"
                 );
-                let CNY = res.data.Valute.CNY.Value * 1.1;
+                let CNY = 12.5;
                 let cnyCourse = Number(CNY)
                 let usdCurse = Number(res.data.Valute.USD.Value)
                 let dropValue;
@@ -23,18 +23,18 @@ module.exports = {
                 let profit;
               if (body.category == "Кроссовки/Верхняя одежда") {
                     dropValue = Number(body.price) * 0.05 // drop
-                    logisticValue = Number(body.price) * 0.03
+                    logisticValue = 1100
                     dropPercentage = 7.86  * Number(usdCurse)
-                    chinaDrop = 14
-                    portShopCom = 1100
-                    result = ((Number(body.price) + Number(dropValue) + Number(logisticValue) + Number(chinaDrop)) * Number(cnyCourse)) + Number(dropPercentage) + portShopCom
+                    chinaDrop = 350
+                    portShopCom = 1500
+                    result = (Number(body.price) * Number(cnyCourse)) + Number(logisticValue) + Number(chinaDrop) + portShopCom
               } else if (body.category == "Толстовки") {
                 dropValue = Number(body.price) * 0.05 // drop
-                logisticValue = Number(body.price) * 0.03
+                logisticValue = 700
                 dropPercentage = 6.02  * Number(usdCurse)
-                chinaDrop = 11
-                portShopCom = 800
-                result = ((Number(body.price) + Number(dropValue) + Number(logisticValue) + Number(chinaDrop)) * Number(cnyCourse)) + Number(dropPercentage) + portShopCom
+                chinaDrop = 250
+                portShopCom = 1500
+                result = (Number(body.price) * Number(cnyCourse)) + Number(logisticValue) + chinaDrop + portShopCom
               } else if (body.category == "Штаны") {
                 dropValue = Number(body.price) * 0.05 // drop
                 logisticValue = Number(body.price) * 0.03

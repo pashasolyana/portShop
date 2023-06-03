@@ -103,11 +103,12 @@ class ScenesGenerator {
         if (!Number(userValue)) {
           await ctx.reply("Пожалуйста укажите корректную стоимость.");
         } else {
-          const res = await axios.get(
-            "https://www.cbr-xml-daily.ru/daily_json.js"
-          );
-          let CNY = res.data.Valute.CNY.Value * 1.1;
-          let resultValue = Number(userValue) * Number(CNY) + 2150;
+         // const res = await axios.get(
+       //     "https://www.cbr-xml-daily.ru/daily_json.js"
+       //   );
+        //  let CNY = res.data.Valute.CNY.Value * 1.1;
+          let CNY = 12.5
+          let resultValue = (Number(userValue) + 0.05) * Number(CNY) + 2950;
           await ctx.reply(
             `💸Итоговая стоимость составит : ${resultValue.toFixed(
               0
@@ -173,7 +174,7 @@ class ScenesGenerator {
           const res = await axios.get(
             "https://www.cbr-xml-daily.ru/daily_json.js"
           );
-          let CNY = Number(res.data.Valute.CNY.Value) * 1.1;
+          let CNY = 12.5;
           let USD = Number(res.data.Valute.USD.Value)
           let dropValue = Number(userValue) * 0.05 // drop
           let logisticValue = Number(userValue) * 0.03 
@@ -181,7 +182,7 @@ class ScenesGenerator {
           let chinaDrop = 11// юань
           let portshopCom = 800
           console.log(CNY, USD, dropValue, logisticValue, dropPercentage, chinaDrop)
-          let resultValue = ((Number(userValue) + Number(dropValue) + Number(logisticValue) + Number(chinaDrop)) * Number(CNY)) + Number(dropPercentage) + portshopCom
+          let resultValue = (Number(userValue) + 0.05) * Number(CNY) + 2500;
           await ctx.reply(
             `💸Итоговая стоимость составит : ${resultValue.toFixed(
               0
@@ -247,7 +248,7 @@ class ScenesGenerator {
           const res = await axios.get(
             "https://www.cbr-xml-daily.ru/daily_json.js"
           );
-          let CNY = Number(res.data.Valute.CNY.Value) * 1.1;
+          let CNY = 12.5;
           let USD = Number(res.data.Valute.USD.Value)
           let dropValue = Number(userValue) * 0.05 // drop
           let logisticValue = Number(userValue) * 0.03 
@@ -321,7 +322,7 @@ class ScenesGenerator {
           const res = await axios.get(
             "https://www.cbr-xml-daily.ru/daily_json.js"
           );
-          let CNY = Number(res.data.Valute.CNY.Value) * 1.1;
+          let CNY =  12.5;
           let USD = Number(res.data.Valute.USD.Value)
           let dropValue = Number(userValue) * 0.05 // drop
           let logisticValue = Number(userValue) * 0.03 
@@ -397,7 +398,7 @@ class ScenesGenerator {
           const res = await axios.get(
             "https://www.cbr-xml-daily.ru/daily_json.js"
           );
-          let CNY = Number(res.data.Valute.CNY.Value) * 1.1;
+          let CNY =  12.5;
           let USD = Number(res.data.Valute.USD.Value)
           let dropValue = Number(userValue) * 0.05 // drop
           let logisticValue = Number(userValue) * 0.03 
@@ -472,7 +473,7 @@ class ScenesGenerator {
           const res = await axios.get(
             "https://www.cbr-xml-daily.ru/daily_json.js"
           );
-          let CNY = Number(res.data.Valute.CNY.Value) * 1.1;
+          let CNY =  12.5;
           let USD = Number(res.data.Valute.USD.Value)
           let dropValue = Number(userValue) * 0.05 // drop
           let logisticValue = Number(userValue) * 0.03 
@@ -546,7 +547,7 @@ class ScenesGenerator {
           const res = await axios.get(
             "https://www.cbr-xml-daily.ru/daily_json.js"
           );
-          let CNY = Number(res.data.Valute.CNY.Value) * 1.1;
+          let CNY =  12.5;
           let USD = Number(res.data.Valute.USD.Value)
           let dropValue = Number(userValue) * 0.05 // drop
           let logisticValue = Number(userValue) * 0.03 
@@ -620,7 +621,7 @@ class ScenesGenerator {
           const res = await axios.get(
             "https://www.cbr-xml-daily.ru/daily_json.js"
           );
-          let CNY = Number(res.data.Valute.CNY.Value) * 1.1;
+          let CNY =  12.5;
           let USD = Number(res.data.Valute.USD.Value)
           let dropValue = Number(userValue) * 0.05 // drop
           let logisticValue = Number(userValue) * 0.03 
